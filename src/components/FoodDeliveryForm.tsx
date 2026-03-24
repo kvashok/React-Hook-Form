@@ -6,7 +6,14 @@ type FoodDeliveryFormType ={
     email: string
 }
 const FoodDeliveryForm = () => {
-    const {register,handleSubmit} = useForm<FoodDeliveryFormType>()
+    const {register,handleSubmit} = useForm<FoodDeliveryFormType>({
+        defaultValues:{
+            orderNo: new Date().getTime(),
+            customerName: '',
+            mobile: '',
+            email: '',
+        }
+    })
     const onSubmit=(formData:FoodDeliveryFormType)=>{
         console.log(formData);
     }
@@ -18,7 +25,7 @@ const FoodDeliveryForm = () => {
         <div className="row mb-2">
             <div className="col">
                 <div className="form-floating">
-                    <input type="text" className='form-control' placeholder='#Order No' {...register('orderNo')}/>
+                    <input type="text" className='form-control' placeholder='#OrderNo' disabled {...register('orderNo')}/>
                     <label>Order No</label>
                 </div>
             </div>
