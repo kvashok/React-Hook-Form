@@ -1,3 +1,4 @@
+import "./App.css"
 import FoodDeliveryForm from './components/FoodDeliveryForm'
 
 const App = () => {
